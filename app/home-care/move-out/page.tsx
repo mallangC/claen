@@ -7,17 +7,17 @@ const subNavItems = [
 ]
 
 const areas = [
-  { name: '주방', img: '[ 주방 청소 이미지 ]', items: ['찌든 기름때 제거', '레인지후드 청소', '싱크대 배수구 청소', '타일 줄눈 청소', '가스레인지 분해 청소'] },
-  { name: '욕실', img: '[ 욕실 청소 이미지 ]', items: ['곰팡이 제거', '변기 세척 및 소독', '욕실 전체 스케일 제거', '실리콘 청소', '환풍기 청소'] },
-  { name: '거실·방', img: '[ 거실·방 청소 이미지 ]', items: ['바닥 왁싱', '창문·창틀 청소', '붙박이장 내부', '도배 후 이물질 제거', '에어컨 필터 청소'] },
-  { name: '현관·베란다', img: '[ 현관·베란다 청소 이미지 ]', items: ['베란다 바닥 청소', '새시 프레임 청소', '배수구 청소', '신발장 내부', '천장 거미줄 제거'] },
+  { name: '주방', img: '/areas/move-out/kitchen.jpg', items: ['레인지후드 필터 분해 및 주방 가구 세정', '하단 걸레받이 탈거 및 내부 먼지 강력 흡입', '싱크대 상·하부장 분리 내외부 생활 오염 정밀 케어', '쿡탑 주변 찌든 오염 및 벽면 타일 유분기 정밀 제거', '수전·싱크볼 고온 세정 및 배수구 유해 세균 살균 소독'] },
+  { name: '욕실', img: '/areas/move-out/bathroom.jpg', items: ['욕실 전체 타일 세정 벽·바닥 누적 오염 밀착 케어', '환풍기 커버 탈거 및 내부 누적 먼지 흡입 세척', '하수구 배수구 트랩 분해 오물 제거 및 악취 차단 고온 소독', '수전·도기 정밀 스케일링 고질적인 물때 제거 및 스텐 광택 복원', '욕실 가구 및 거울 수납장 내외부 유막 제거 및 세정'] },
+  { name: '거실·방', img: '/areas/move-out/living-room.jpg', items: ['붙박이장·수납 서랍장 전면 탈거 내부 수납공간 안심 위생 케어', '실내 창문 및 창틀 오랜 시간 누적된 먼지 정밀 흡입 케어', '벽면·천장 생활 먼지 및 전등갓 분해 벌레 사체·먼지 털기', '바닥 묵은 때 흡입 및 친환경 세제 밀착 살균 세정', '콘센트·스위치·몰딩 손때가 타기 쉬운 사각지대 디테일 케어'] },
+  { name: '현관·베란다', img: '/areas/move-out/entrance.jpg', items: ['현관 신발장 서랍장 탈거 흙먼지 제거 및 내외부 정밀 소독', '베란다 창틀 및 새시 외부 찌든 먼지 프리미엄 고압 세척', '바닥 타일 전면 습식 올-워시(All-Wash) 세정', '베란다 배수구 트랩 분해 이물질 세척 및 유해 세균 살균 소독'] },
 ]
 
 const recommendItems = [
-  { title: '이사 나가는 분', desc: '보증금 반환을 위한 원상복구 청소' },
-  { title: '이사 들어오는 분', desc: '이전 세입자의 오염 제거 후 새 출발' },
-  { title: '집주인·임대인', desc: '공실 청소로 새 세입자 맞이 준비' },
-  { title: '도배 후 청소', desc: '도배·인테리어 후 잔여물 정리' },
+  { title: '이사 나가는 분', desc: '보증금 반환 분쟁 제로, 깨끗한 퇴거를 위한 완벽한 원상복구 케어' },
+  { title: '이사 들어오는 분', desc: '이전 세입자의 거주 흔적 완벽 삭제, 찝찝함 없는 위생적인 새 출발' },
+  { title: '집주인·임대인', desc: '빠른 공실 회전과 자산 가치 상승, 품격 있는 새 세입자 맞이 준비' },
+  { title: '이사 전', desc: '도배·장판 후 하얀 도배풀 자국 및 미세 석고 가루 털기, 시공 직후 정밀 미세 케어' },
 ]
 
 export default function MoveOutPage() {
@@ -33,8 +33,7 @@ export default function MoveOutPage() {
       intro={{
         label: 'Move-out Cleaning',
         title: '이사청소란?',
-        para1: '오랜 거주로 쌓인 묵은 때, 기름때, 곰팡이 등을 전문 장비와 약품으로 말끔하게 제거합니다. 이사 나가기 전 원상복구 청소, 이사 들어오기 전 청소 모두 가능합니다.',
-        para2: '보증금 반환 문제로 스트레스받지 마세요. 전문 청소로 깔끔하게 마무리해 드립니다.',
+        para1: '이사청소는 단순한 가시적인 청소를 넘어, 이전 거주자가 오랜 시간 머무르며 남긴 누적된 생활 오염과 숨은 사각지대의 유해 요소를 완벽하게 걷어내는 ‘공간 복원’ 과정입니다. 더퍼스트클린은 독한 화학 약품으로 겉만 번지르르하게 닦아내어 자재를 손상시키는 하청 방식을 철저히 배제합니다. 검증된 독일산 프리미엄 친환경 세제와 고성능 전문 장비를 투입하여 실내 전체를 맑고 위생적인 청정 공간으로 리프레시합니다.',
       }}
       areas={areas}
       extraSection={
@@ -44,7 +43,7 @@ export default function MoveOutPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {recommendItems.map((item) => (
                 <div key={item.title} className="bg-white rounded-2xl p-6 shadow-sm text-center">
-                  <div className="h-72 bg-gradient-to-br from-gray-800 to-[#0a3d7a] rounded-xl mb-4 flex items-center justify-center">
+                  <div className="h-72 bg-linear-to-br from-gray-800 to-[#0a3d7a] rounded-xl mb-4 flex items-center justify-center">
                     <p className="text-gray-400 text-xs px-2">[ {item.title} 이미지 ]</p>
                   </div>
                   <h4 className="font-bold text-gray-900 mb-2">{item.title}</h4>

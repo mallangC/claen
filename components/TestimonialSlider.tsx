@@ -41,18 +41,64 @@ const reviews = [
   },
 ]
 
-const VISIBLE = 4
+const DESKTOP_VISIBLE = 4
+const MOBILE_PAGE_SIZE = 2
+
+function ReviewCard({ review }: { review: typeof reviews[0] }) {
+  return (
+    <div className="flex gap-3 items-start">
+      <div className="flex-shrink-0">
+        <div className="w-12 h-12 rounded-2xl bg-[#6B8E9F] flex items-center justify-center shadow-sm">
+          <span className="text-base font-bold text-white">{review.name[0]}</span>
+        </div>
+      </div>
+      <div className="flex flex-col gap-1.5 min-w-0">
+        <span className="text-sm font-semibold text-white/90">{review.name}</span>
+        <div
+          className="relative bg-white rounded-2xl rounded-tl-none px-4 py-3 shadow-sm"
+          style={{
+            filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.12))',
+          }}
+        >
+          {/* 꼬리 */}
+          <span
+            className="absolute -top-0 -left-2"
+            style={{
+              width: 0,
+              height: 0,
+              borderTop: '10px solid white',
+              borderLeft: '10px solid transparent',
+            }}
+          />
+          <div className="flex gap-0.5 mb-2">
+            {Array.from({ length: review.rating }).map((_, j) => (
+              <svg key={j} className="w-4 h-4 fill-[#FEE500]" viewBox="0 0 24 24" stroke="#d4a000" strokeWidth={0.5}>
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+            ))}
+          </div>
+          <p className="text-gray-800 text-sm leading-relaxed">{review.text}</p>
+        </div>
+        <span className="text-xs text-white/70 ml-1">{review.service}</span>
+      </div>
+    </div>
+  )
+}
 
 export default function TestimonialSlider() {
-  const [current, setCurrent] = useState(0)
-  const max = reviews.length - VISIBLE
+  const [desktopCurrent, setDesktopCurrent] = useState(0)
+  const [mobilePage, setMobilePage] = useState(0)
+  const desktopMax = reviews.length - DESKTOP_VISIBLE
+  const mobileMaxPage = Math.ceil(reviews.length / MOBILE_PAGE_SIZE) - 1
+  const mobileReviews = reviews.slice(mobilePage * MOBILE_PAGE_SIZE, mobilePage * MOBILE_PAGE_SIZE + MOBILE_PAGE_SIZE)
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrent((c) => (c >= max ? 0 : c + 1))
+      setDesktopCurrent((c) => (c >= desktopMax ? 0 : c + 1))
+      setMobilePage((p) => (p >= mobileMaxPage ? 0 : p + 1))
     }, 4000)
     return () => clearInterval(timer)
-  }, [max])
+  }, [desktopMax, mobileMaxPage])
 
   return (
     <section className="py-16 md:py-24 bg-white">
@@ -63,68 +109,71 @@ export default function TestimonialSlider() {
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">실제 고객분들의 생생한 후기입니다</p>
         </div>
 
-        <div className="relative">
-          {/* 슬라이드 트랙 */}
-          <div className="overflow-hidden">
-            <div
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${current * (100 / VISIBLE)}%)` }}
-            >
-              {reviews.map((review, i) => (
-                <div key={i} className="w-1/4 flex-shrink-0 px-3">
-                  <div className="bg-gray-50 rounded-2xl p-6 flex flex-col gap-4 h-full">
-                    <div className="flex gap-1">
-                      {Array.from({ length: review.rating }).map((_, j) => (
-                        <svg key={j} className="w-4 h-4 fill-yellow-400" viewBox="0 0 24 24">
-                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                        </svg>
-                      ))}
-                    </div>
-                    <p className="text-gray-700 text-sm leading-relaxed flex-1">"{review.text}"</p>
-                    <div className="border-t border-gray-200 pt-4">
-                      <p className="font-semibold text-gray-900 text-sm">{review.name}</p>
-                      <p className="text-[#1565c0] text-xs font-medium mt-0.5">{review.service}</p>
-                    </div>
-                  </div>
-                </div>
+        {/* 모바일: 2×2 그리드 */}
+        <div className="md:hidden">
+          <div className="bg-[#ABC1D1] rounded-2xl p-4">
+            <div className="grid grid-cols-2 gap-4">
+              {mobileReviews.map((review, i) => (
+                <ReviewCard key={i} review={review} />
               ))}
             </div>
           </div>
-
-          {/* 이전 버튼 */}
-          <button
-            onClick={() => setCurrent((c) => Math.max(c - 1, 0))}
-            disabled={current === 0}
-            className="absolute -left-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center hover:bg-gray-50 disabled:opacity-30 disabled:cursor-not-allowed transition-opacity"
-          >
-            <svg className="w-5 h-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-
-          {/* 다음 버튼 */}
-          <button
-            onClick={() => setCurrent((c) => Math.min(c + 1, max))}
-            disabled={current === max}
-            className="absolute -right-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center hover:bg-gray-50 disabled:opacity-30 disabled:cursor-not-allowed transition-opacity"
-          >
-            <svg className="w-5 h-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
+          <div className="flex justify-center gap-2 mt-6">
+            {Array.from({ length: mobileMaxPage + 1 }).map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setMobilePage(i)}
+                className={`h-2 rounded-full transition-all ${mobilePage === i ? 'bg-[#0a3d7a] w-6' : 'bg-gray-300 w-2'}`}
+              />
+            ))}
+          </div>
         </div>
 
-        {/* 인디케이터 */}
-        <div className="flex justify-center gap-2 mt-8">
-          {Array.from({ length: max + 1 }).map((_, i) => (
+        {/* 데스크탑: 4열 슬라이더 */}
+        <div className="hidden md:block">
+          <div className="relative">
+            <div className="overflow-hidden bg-[#ABC1D1] rounded-2xl px-4 py-6">
+              <div
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${desktopCurrent * (100 / DESKTOP_VISIBLE)}%)` }}
+              >
+                {reviews.map((review, i) => (
+                  <div key={i} className="w-1/4 flex-shrink-0 px-3">
+                    <ReviewCard review={review} />
+                  </div>
+                ))}
+              </div>
+            </div>
+
             <button
-              key={i}
-              onClick={() => setCurrent(i)}
-              className={`w-2 h-2 rounded-full transition-all ${
-                current === i ? 'bg-[#0a3d7a] w-6' : 'bg-gray-300'
-              }`}
-            />
-          ))}
+              onClick={() => setDesktopCurrent((c) => Math.max(c - 1, 0))}
+              disabled={desktopCurrent === 0}
+              className="absolute -left-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center hover:bg-gray-50 disabled:opacity-30 disabled:cursor-not-allowed transition-opacity"
+            >
+              <svg className="w-5 h-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              onClick={() => setDesktopCurrent((c) => Math.min(c + 1, desktopMax))}
+              disabled={desktopCurrent === desktopMax}
+              className="absolute -right-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center hover:bg-gray-50 disabled:opacity-30 disabled:cursor-not-allowed transition-opacity"
+            >
+              <svg className="w-5 h-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+
+          <div className="flex justify-center gap-2 mt-8">
+            {Array.from({ length: desktopMax + 1 }).map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setDesktopCurrent(i)}
+                className={`h-2 rounded-full transition-all ${desktopCurrent === i ? 'bg-[#0a3d7a] w-6' : 'bg-gray-300 w-2'}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

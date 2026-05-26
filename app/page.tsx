@@ -36,19 +36,19 @@ const services = [
 ]
 
 const reasons = [
-  { num: '01', title: '10년 이상의 전문성', desc: '풍부한 경험을 바탕으로 어떤 공간도 완벽하게 청소합니다.' },
-  { num: '02', title: '친환경 세제 사용', desc: '인체에 무해한 친환경 세제만을 사용하여 안전한 청소를 보장합니다.' },
-  { num: '03', title: '전문 장비 보유', desc: '산업용 고압세척기, 전문 청소 장비로 효과적인 청소를 실현합니다.' },
-  { num: '04', title: '철저한 사후 관리', desc: '청소 완료 후에도 만족하실 수 있도록 사후 관리를 제공합니다.' },
-  { num: '05', title: '합리적인 가격', desc: '무료 현장 견적으로 투명하고 합리적인 가격을 제공합니다.' },
-  { num: '06', title: '신속한 서비스', desc: '빠른 예약과 신속한 서비스로 고객의 소중한 시간을 지킵니다.' },
+  { num: '01', title: '100% 직영 팀장제 운영', desc: '하청이나 단기 알바 없이, 본사 교육을 수료한 전문 팀장과 대표가 책임지고 현장을 직접 지휘합니다.' },
+  { num: '02', title: '독일산 프리미엄 친환경 세제', desc: '눈에 보이지 않는 유해 성분까지 차단하기 위해 인체에 무해한 독일산 안심 세제와 피톤치드로 케어합니다.' },
+  { num: '03', title: '구역별 전문 올-탈거 청소', desc: '수납장 서랍, 배수구 트랩, 환풍기 커버 등 분리 가능한 모든 곳을 완전히 탈거하여 사각지대 분진을 박멸합니다.' },
+  { num: '04', title: '고성능 전문 장비 시스템', desc: '산업용 고압 세척기, 고온 스팀기, 미세먼지 정밀 흡입기 등 공간과 오염에 맞는 최적의 전문 장비를 투입합니다.' },
+  { num: '05', title: '당일 현장 검수 및 무상 A/S', desc: '청소 완료 전 고객님과 함께 현장을 꼼꼼히 검수하며, 미흡한 부분은 그 자리에서 즉시 완벽하게 재케어합니다.' },
+  { num: '06', title: '거품 없는 프리미엄 & 전후 리포트', desc: '직영 운영으로 프리미엄 퀄리티를 최저가 수준으로 실현합니다. 작업 전후 디테일한 비교 사진을 실시간 공유하여 완벽한 품질을 눈으로 증명합니다.' },
 ]
 
 const processSteps = [
-  { step: '01', title: '견적 문의', desc: '전화, 카톡 또는 온라인으로 간편하게 견적을 요청하세요.' },
-  { step: '02', title: '현장 확인', desc: '전문 상담원이 현장을 확인하고 맞춤 견적을 제공합니다.' },
-  { step: '03', title: '청소 진행', desc: '전문 팀이 꼼꼼하고 신속하게 청소를 진행합니다.' },
-  { step: '04', title: '품질 확인', desc: '청소 완료 후 품질을 확인하고 만족도를 체크합니다.' },
+  { step: '01', title: '무료 견적 상담', desc: '온라인·유선 접수 후\n현장 조건에 맞춘 단가 안내' },
+  { step: '02', title: '예약 확정', desc: '계약금 결제 완료 후\n예약일 확정 및 전담 배정팀 배치' },
+  { step: '03', title: '책임 현장 케어', desc: '일정 하루 전 사전 안내 후\n전문 팀장이 투입' },
+  { step: '04', title: '청소 완공 검수', desc: '청소완료 후\n고객님 검수 및 잔금 결제' },
 ]
 
 export default function HomePage() {
@@ -111,7 +111,7 @@ export default function HomePage() {
         </section>
 
         {/* 실적 통계 배너 */}
-        <section className="relative py-20 md:py-28 overflow-hidden">
+        <section className="relative py-12 md:py-16 overflow-hidden">
           <div className="absolute inset-0">
             <Image
               src="/images/about.png"
@@ -122,16 +122,15 @@ export default function HomePage() {
             <div className="absolute inset-0 bg-[#0a1a2e]/78" />
           </div>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-14">
+            <div className="text-center mb-10">
               <p className="text-blue-300 text-base font-semibold mb-3 tracking-wider uppercase">Our Achievement</p>
               <h2 className="text-3xl md:text-4xl font-bold text-white">숫자로 증명하는 더퍼스트클린</h2>
             </div>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-3 gap-8">
               {[
-                { num: '10+', label: '년 업력' },
-                { num: '5,000+', label: '누적 시공 건수' },
-                { num: '99%', label: '고객 만족도' },
-                { num: '24/7', label: '고객 지원' },
+                { num: '7년', label: '업력' },
+                { num: '2,300건', label: '누적 시공' },
+                { num: '5점', label: '평점' },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
                   <p className="text-5xl md:text-6xl font-black text-white mb-3">{stat.num}</p>
@@ -189,7 +188,7 @@ export default function HomePage() {
                     {p.step}
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-2">{p.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{p.desc}</p>
+                  <p className="text-gray-600 text-sm leading-relaxed whitespace-pre-line">{p.desc}</p>
                 </div>
               ))}
             </div>

@@ -3,6 +3,7 @@ import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
 import ServiceSubNav from '@/components/ServiceSubNav'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ReactNode } from 'react'
 
 type Area = {
@@ -76,8 +77,14 @@ export default function ServicePageTemplate({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {areas.map((area) => (
                   <div key={area.name} className="bg-gray-50 rounded-2xl overflow-hidden">
-                    <div className="h-[500px] bg-gradient-to-br from-gray-800 to-[#0a3d7a] flex items-center justify-center">
-                      <p className="text-gray-400 text-xs text-center px-3">{area.img}</p>
+                    <div className="relative h-[500px] bg-gradient-to-br from-gray-800 to-[#0a3d7a]">
+                      {area.img.startsWith('/') ? (
+                        <Image src={area.img} alt={area.name} fill className="object-cover" />
+                      ) : (
+                        <div className="flex items-center justify-center h-full">
+                          <p className="text-gray-400 text-xs text-center px-3">{area.img}</p>
+                        </div>
+                      )}
                     </div>
                     <div className="p-5">
                       <h4 className="text-xl font-bold text-gray-900 mb-3">{area.name}</h4>
