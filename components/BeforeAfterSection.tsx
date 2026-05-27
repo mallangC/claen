@@ -5,9 +5,9 @@ import Image from 'next/image'
 
 const cases = [
   { title: '창틀 청소', location: '아파트 창틀 묵은 때 제거', before: '/before-after/case1-before.png', after: '/before-after/case1-after.png' },
-  { title: '배수구 청소', location: '욕실 배수구 찌든 때 제거', before: '/before-after/case2-before.png', after: '/before-after/case2-after.png' },
-  { title: '화장실 청소', location: '화장실 전체 청소 및 소독', before: '/before-after/case3-before.png', after: '/before-after/case3-after.png' },
-  { title: '환풍기 청소', location: '주방·욕실 환풍기 분해 청소', before: '/before-after/case4-before.png', after: '/before-after/case4-after.png' },
+  { title: '배수구 청소', location: '욕실 배수구 찌든 때 제거', before: '/before-after/case2-before.jpg', after: '/before-after/case2-after.jpg' },
+  { title: '화장실 청소', location: '화장실 전체 청소 및 소독', before: '/before-after/case3-before.jpg', after: '/before-after/case3-after.jpg' },
+  { title: '환풍기 청소', location: '주방·욕실 환풍기 분해 청소', before: '/before-after/case4-before.jpg', after: '/before-after/case4-after.png' },
   { title: '곰팡이 제거', location: '욕실 줄눈·실리콘 곰팡이 제거', before: '/before-after/case5-before.png', after: '/before-after/case5-after.png' },
   { title: '찌든 때 제거', location: '주방 기름때·찌든 때 제거', before: '/before-after/case6-before.png', after: '/before-after/case6-after.png' },
 ]
@@ -23,7 +23,7 @@ function BeforeAfterCard({ title, location, before, after }: {
   return (
     <div className="rounded-2xl overflow-hidden shadow-md">
       {/* 이미지 영역 */}
-      <div className="relative h-52 md:h-60 bg-gray-900 overflow-hidden">
+      <div className="relative h-72 md:h-96 bg-gray-900 overflow-hidden">
         <Image
           src={before}
           alt={`${title} 청소 전`}
@@ -83,7 +83,7 @@ export default function BeforeAfterSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {cases.map((c) => (
             <BeforeAfterCard key={c.title} {...c} />
           ))}

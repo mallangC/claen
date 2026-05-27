@@ -2,6 +2,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const services = [
   {
@@ -18,7 +19,7 @@ const services = [
       '욕실 전체 타일 분진 제거',
       '틈새 먼지 세정',
     ],
-    imageDesc: '입주청소 전/후 비교 이미지',
+    img: '/home-care/move-in.jpg',
   },
   {
     id: 'move-out',
@@ -34,7 +35,7 @@ const services = [
       '베란다 창틀 및 새시 청소',
       '친환경 세제 사용 & 탈취 케어',
     ],
-    imageDesc: '이사청소 작업 현장 이미지',
+    img: '/home-care/move-out.jpg',
   },
   {
     id: 'residential',
@@ -50,7 +51,7 @@ const services = [
       '욕실 찌든 물때 및 냄새 박멸',
       '실내 전 구역 생활 먼지 제거',
     ],
-    imageDesc: '거주청소 서비스 이미지',
+    img: '/home-care/residential.jpg',
   },
 ]
 
@@ -84,11 +85,8 @@ export default function HomeCarePage() {
                   className={`grid grid-cols-1 lg:grid-cols-2 gap-10 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
                 >
                   <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                    <div className="h-72 bg-gradient-to-br from-gray-900 to-[#0a3d7a] rounded-2xl flex items-center justify-center">
-                      <div className="text-center text-white p-6">
-                        <p className="text-gray-400 text-sm mb-2">[ {service.imageDesc} ]</p>
-                        <p className="text-xl font-bold">{service.title}</p>
-                      </div>
+                    <div className="relative h-72 rounded-2xl overflow-hiddenㄷ">
+                      <Image src={service.img} alt={service.title} fill className="object-cover" />
                     </div>
                   </div>
                   <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
