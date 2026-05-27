@@ -22,7 +22,6 @@ type Props = {
     title: string
     subtitle: string
     breadcrumb: string[]
-    imageDesc: string
   }
   subNavItems: SubNavItem[]
   intro: {
@@ -57,7 +56,6 @@ export default function ServicePageTemplate({
           title={hero.title}
           subtitle={hero.subtitle}
           breadcrumb={hero.breadcrumb}
-          imageDesc={hero.imageDesc}
         />
         <ServiceSubNav items={subNavItems} />
 
