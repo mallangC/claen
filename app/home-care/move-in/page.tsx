@@ -43,7 +43,6 @@ export default function MoveInPage() {
         title: '입주청소',
         subtitle: '새 집의 시작을 완벽하게 준비합니다',
         breadcrumb: ['홈', '프리미엄 홈케어', '입주청소'],
-        imageDesc: '입주청소 현장 이미지',
       }}
       subNavItems={subNavItems}
       intro={{

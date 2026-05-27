@@ -27,7 +27,6 @@ export default function MoveOutPage() {
         title: '이사청소',
         subtitle: '이사 전·후 묵은 오염을 깨끗하게 해결합니다',
         breadcrumb: [],
-        imageDesc: '이사청소 현장 이미지',
       }}
       subNavItems={subNavItems}
       intro={{

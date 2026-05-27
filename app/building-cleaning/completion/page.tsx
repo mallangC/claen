@@ -19,7 +19,6 @@ export default function CompletionPage() {
         title: '준공청소',
         subtitle: '건물 완공 후 완벽한 입주 준비',
         breadcrumb: [],
-        imageDesc: '준공청소 현장 이미지',
       }}
       subNavItems={subNavItems}
       intro={{

@@ -20,7 +20,6 @@ const services = [
       '지하주차장 청소',
       '옥상·외부 청소',
     ],
-    imageDesc: '준공청소 작업 현장 이미지',
   },
   {
     id: 'government',
@@ -38,7 +37,6 @@ const services = [
       '주차장 청소',
       '정기 위생 관리',
     ],
-    imageDesc: '관공서 청소 작업 이미지',
   },
 ]
 
@@ -58,7 +56,6 @@ export default function BuildingCleaningPage() {
           title="건물·기관청소"
           subtitle="준공청소 · 관공서청소"
           breadcrumb={['홈', '건물·기관청소']}
-          imageDesc="건물 청소 대표 이미지"
         />
 
         <section className="py-16 md:py-24 bg-white">
@@ -77,7 +74,6 @@ export default function BuildingCleaningPage() {
                   <div className={`pt-10 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
                     <div className="h-72 bg-gradient-to-br from-gray-800 to-slate-900 rounded-2xl flex items-center justify-center">
                       <div className="text-center text-white p-6">
-                        <p className="text-gray-400 text-sm mb-2">[ {service.imageDesc} ]</p>
                         <p className="text-xl font-bold">{service.title}</p>
                       </div>
                     </div>

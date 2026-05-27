@@ -19,7 +19,6 @@ export default function GovernmentPage() {
         title: '관공서청소',
         subtitle: '공공기관의 품격있는 청결 환경 조성',
         breadcrumb: [],
-        imageDesc: '관공서 청소 현장 이미지',
       }}
       subNavItems={subNavItems}
       intro={{

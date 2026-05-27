@@ -20,7 +20,6 @@ export default function ResidentialPage() {
         title: '거주청소',
         subtitle: '바쁜 일상, 전문가에게 맡기세요',
         breadcrumb: [],
-        imageDesc: '거주청소 서비스 이미지',
       }}
       subNavItems={subNavItems}
       intro={{

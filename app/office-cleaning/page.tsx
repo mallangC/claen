@@ -11,7 +11,6 @@ const services = [
     subtitle: '쾌적한 업무 환경 조성',
     desc: '직원들이 쾌적하게 일할 수 있는 사무 환경을 만들어 드립니다. 정기 청소부터 대청소까지 사무실 특성에 맞는 맞춤 청소 서비스를 제공합니다.',
     items: ['사무용 가구 먼지 제거', '카펫 청소 및 스팀 세척', '유리 파티션 청소', '주방/탕비실 청소', '화장실 위생 관리', '바닥 왁싱 및 광택'],
-    imageDesc: '깨끗한 사무실 환경 이미지',
   },
   {
     id: 'store',
@@ -20,7 +19,6 @@ const services = [
     subtitle: '고객을 맞이하는 깨끗한 공간',
     desc: '고객의 첫인상을 결정하는 상가 공간을 항상 청결하게 유지합니다. 개업 청소부터 정기 청소까지 상가 운영에 맞춘 서비스를 제공합니다.',
     items: ['영업 후 청소 서비스', '쇼윈도 청소', '진열대 먼지 제거', '바닥 청소 및 광택', '간판 및 외관 청소', '냉장·냉동 장비 청소'],
-    imageDesc: '깨끗한 상가 매장 이미지',
   },
   {
     id: 'medical',
@@ -29,7 +27,6 @@ const services = [
     subtitle: '위생이 최우선인 의료 공간',
     desc: '의료 환경의 특수성을 이해하는 전문 팀이 병원 및 의원의 위생 관리를 담당합니다. 의료용 소독제를 사용한 철저한 위생 관리로 감염 예방에 앞장섭니다.',
     items: ['의료용 소독제 사용', '대기실·진료실 청소', '수술실 준비 청소', '의료 폐기물 관리', '공조 시스템 필터 청소', '화장실 위생 관리'],
-    imageDesc: '깨끗한 병원 환경 이미지',
   },
 ]
 
@@ -42,7 +39,6 @@ export default function OfficeCleaningPage() {
           title="오피스·상가청소"
           subtitle="사무실청소 · 상가청소 · 병·의원 청소"
           breadcrumb={['홈', '오피스·상가청소']}
-          imageDesc="오피스 청소 대표 이미지"
         />
 
         <section className="py-16 md:py-24 bg-white">
@@ -61,7 +57,6 @@ export default function OfficeCleaningPage() {
                   <div className={`pt-10 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
                     <div className="h-72 bg-gradient-to-br from-gray-800 to-[#0a3d7a] rounded-2xl flex items-center justify-center">
                       <div className="text-center text-white p-6">
-                        <p className="text-gray-400 text-sm mb-2">[ {service.imageDesc} ]</p>
                         <p className="text-xl font-bold">{service.title}</p>
                       </div>
                     </div>

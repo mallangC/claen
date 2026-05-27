@@ -22,7 +22,6 @@ export default function StorePage() {
         title: '상가청소',
         subtitle: '고객의 첫인상, 깨끗한 매장에서 시작됩니다',
         breadcrumb: [],
-        imageDesc: '상가청소 현장 이미지',
       }}
       subNavItems={subNavItems}
       intro={{

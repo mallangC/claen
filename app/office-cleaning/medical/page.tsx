@@ -26,7 +26,6 @@ export default function MedicalPage() {
         title: '병·의원 청소',
         subtitle: '의료 환경에 맞는 전문 위생 관리',
         breadcrumb: [],
-        imageDesc: '병의원 청소 현장 이미지',
       }}
       subNavItems={subNavItems}
       intro={{

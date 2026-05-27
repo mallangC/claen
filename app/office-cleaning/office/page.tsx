@@ -26,7 +26,6 @@ export default function OfficePage() {
         title: '사무실청소',
         subtitle: '쾌적한 업무 환경이 생산성을 높입니다',
         breadcrumb: [],
-        imageDesc: '사무실청소 현장 이미지',
       }}
       subNavItems={subNavItems}
       intro={{
