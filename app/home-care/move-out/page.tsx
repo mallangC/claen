@@ -1,4 +1,5 @@
 import ServicePageTemplate from '@/components/ServicePageTemplate'
+import Image from 'next/image'
 
 const subNavItems = [
   { label: '입주청소', href: '/home-care/move-in' },
@@ -14,10 +15,10 @@ const areas = [
 ]
 
 const recommendItems = [
-  { title: '이사 나가는 분', desc: '보증금 반환 분쟁 제로, 깨끗한 퇴거를 위한 완벽한 원상복구 케어' },
-  { title: '이사 들어오는 분', desc: '이전 세입자의 거주 흔적 완벽 삭제, 찝찝함 없는 위생적인 새 출발' },
-  { title: '집주인·임대인', desc: '빠른 공실 회전과 자산 가치 상승, 품격 있는 새 세입자 맞이 준비' },
-  { title: '이사 전', desc: '도배·장판 후 하얀 도배풀 자국 및 미세 석고 가루 털기, 시공 직후 정밀 미세 케어' },
+  { title: '이사 나가는 분', img: '/home-care/move-out/recommend-moveout.jpg', desc: '보증금 반환 분쟁 제로, 깨끗한 퇴거를 위한 완벽한 원상복구 케어' },
+  { title: '이사 들어오는 분', img: '/home-care/move-out/recommend-movein.jpg', desc: '이전 세입자의 거주 흔적 완벽 삭제, 찝찝함 없는 위생적인 새 출발' },
+  { title: '집주인·임대인', img: '/home-care/move-out/recommend-landlord.jpg', desc: '빠른 공실 회전과 자산 가치 상승, 품격 있는 새 세입자 맞이 준비' },
+  { title: '이사 전', img: '/home-care/move-out/recommend-before.jpg', desc: '도배·장판 후 하얀 도배풀 자국 및 미세 석고 가루 털기, 시공 직후 정밀 미세 케어' },
 ]
 
 export default function MoveOutPage() {
@@ -42,8 +43,8 @@ export default function MoveOutPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {recommendItems.map((item) => (
                 <div key={item.title} className="bg-white rounded-2xl p-6 shadow-sm text-center">
-                  <div className="h-72 bg-linear-to-br from-gray-800 to-[#0a3d7a] rounded-xl mb-4 flex items-center justify-center">
-                    <p className="text-gray-400 text-xs px-2">[ {item.title} 이미지 ]</p>
+                  <div className="relative h-72 rounded-xl mb-4 overflow-hidden">
+                    <Image src={item.img} alt={item.title} fill className="object-cover" />
                   </div>
                   <h4 className="font-bold text-gray-900 mb-2">{item.title}</h4>
                   <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>

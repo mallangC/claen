@@ -1,4 +1,5 @@
 import ServicePageTemplate from '@/components/ServicePageTemplate'
+import Image from 'next/image'
 
 const subNavItems = [
   { label: '입주청소', href: '/home-care/move-in' },
@@ -30,10 +31,10 @@ const areas = [
 ]
 
 const recommendItems = [
-  { title: '신축 아파트 입주', desc: '새 아파트 입주 전, 눈에 보이지 않는 미세한 공사 분진과 미세 잔여물까지 완벽 케어' },
-  { title: '인테리어·리모델링', desc: '공사 후 남은 도배 풀, 분진 제거로 완벽한 입주 준비' },
-  { title: '전세·월세 입주', desc: '오랜 거주 흔적과 찌든 때 제거로 쾌적한 주거 공간 제공 및 세입자 안심 케어' },
-  { title: '단독 주택 입주', desc: '다양한 실내 외 오염 제거와 정밀 소독으로 우리가족만의 프라이빗한 공간 완성' },
+  { title: '신축 아파트 입주', img: '/home-care/move-in/recommend-new.jpg', desc: '새 아파트 입주 전, 눈에 보이지 않는 미세한 공사 분진과 미세 잔여물까지 완벽 케어' },
+  { title: '인테리어·리모델링', img: '/home-care/move-in/recommend-interior.jpg', desc: '공사 후 남은 도배 풀, 분진 제거로 완벽한 입주 준비' },
+  { title: '전세·월세 입주', img: '/home-care/move-in/recommend-rental.jpg', desc: '오랜 거주 흔적과 찌든 때 제거로 쾌적한 주거 공간 제공 및 세입자 안심 케어' },
+  { title: '단독 주택 입주', img: '/home-care/move-in/recommend-house.jpg', desc: '다양한 실내 외 오염 제거와 정밀 소독으로 우리가족만의 프라이빗한 공간 완성' },
 ]
 
 export default function MoveInPage() {
@@ -60,8 +61,8 @@ export default function MoveInPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {recommendItems.map((item) => (
                 <div key={item.title} className="bg-white rounded-2xl p-6 shadow-sm text-center">
-                  <div className="h-72 bg-linear-to-br from-gray-800 to-[#0a3d7a] rounded-xl mb-4 flex items-center justify-center">
-                    <p className="text-gray-400 text-xs px-2">[ {item.title} 이미지 ]</p>
+                  <div className="relative h-72 rounded-xl mb-4 overflow-hidden">
+                    <Image src={item.img} alt={item.title} fill className="object-cover" />
                   </div>
                   <h4 className="font-bold text-gray-900 mb-2">{item.title}</h4>
                   <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
