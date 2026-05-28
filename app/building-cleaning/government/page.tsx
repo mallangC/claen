@@ -6,10 +6,10 @@ const subNavItems = [
 ]
 
 const areas = [
-  { name: '민원실·로비', img: '[ 민원실·로비 청소 이미지 ]', items: ['대기 의자 소독', '안내데스크 청소', '바닥 청소 및 광택', '천장·조명 청소', '유리문 청소'] },
-  { name: '사무 공간', img: '[ 사무 공간 청소 이미지 ]', items: ['업무용 책상·의자', '파일 캐비닛 외부', '창문·블라인드', '바닥 청소', '공조 필터 청소'] },
-  { name: '회의실·강당', img: '[ 회의실·강당 청소 이미지 ]', items: ['테이블·의자 소독', '빔프로젝터 주변', '화이트보드 청소', '바닥 청소', '무대·단상 청소'] },
-  { name: '공용 공간', img: '[ 공용 공간 청소 이미지 ]', items: ['엘리베이터 내부', '계단·복도 청소', '화장실 위생 관리', '주차장 청소', '외부 계단 청소'] },
+  { name: '민원실·로비', img: '/building-cleaning/government-lobby.jpg', items: ['대기 의자 소독', '안내데스크 청소', '바닥 청소 및 광택', '천장·조명 청소', '유리문 청소'] },
+  { name: '사무 공간', img: '/building-cleaning/government-office.jpg', items: ['업무용 책상·의자', '파일 캐비닛 외부', '창문·블라인드', '바닥 청소', '공조 필터 청소'] },
+  { name: '회의실·강당', img: '/building-cleaning/government-meeting.jpg', items: ['테이블·의자 소독', '빔프로젝터 주변', '화이트보드 청소', '바닥 청소', '무대·단상 청소'] },
+  { name: '공용 공간', img: '/building-cleaning/government-common.jpg', items: ['엘리베이터 내부', '계단·복도 청소', '화장실 위생 관리', '주차장 청소', '외부 계단 청소'] },
 ]
 
 export default function GovernmentPage() {

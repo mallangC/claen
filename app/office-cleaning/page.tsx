@@ -2,11 +2,13 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const services = [
   {
     id: 'office',
     href: '/office-cleaning/office',
+    img: '/office-cleaning/office.jpg',
     title: '사무실청소',
     subtitle: '쾌적한 업무 환경 조성',
     desc: '직원들이 쾌적하게 일할 수 있는 사무 환경을 만들어 드립니다. 정기 청소부터 대청소까지 사무실 특성에 맞는 맞춤 청소 서비스를 제공합니다.',
@@ -15,6 +17,7 @@ const services = [
   {
     id: 'store',
     href: '/office-cleaning/store',
+    img: '/office-cleaning/store.jpg',
     title: '상가청소',
     subtitle: '고객을 맞이하는 깨끗한 공간',
     desc: '고객의 첫인상을 결정하는 상가 공간을 항상 청결하게 유지합니다. 개업 청소부터 정기 청소까지 상가 운영에 맞춘 서비스를 제공합니다.',
@@ -23,6 +26,7 @@ const services = [
   {
     id: 'medical',
     href: '/office-cleaning/medical',
+    img: '/office-cleaning/medical.jpg',
     title: '병·의원 청소',
     subtitle: '위생이 최우선인 의료 공간',
     desc: '의료 환경의 특수성을 이해하는 전문 팀이 병원 및 의원의 위생 관리를 담당합니다. 의료용 소독제를 사용한 철저한 위생 관리로 감염 예방에 앞장섭니다.',
@@ -55,10 +59,8 @@ export default function OfficeCleaningPage() {
               {services.map((service, index) => (
                 <div key={service.id} className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
                   <div className={`pt-10 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                    <div className="h-72 bg-gradient-to-br from-gray-800 to-[#0a3d7a] rounded-2xl flex items-center justify-center">
-                      <div className="text-center text-white p-6">
-                        <p className="text-xl font-bold">{service.title}</p>
-                      </div>
+                    <div className="relative h-72 rounded-2xl overflow-hidden">
+                      <Image src={service.img} alt={service.title} fill className="object-cover" />
                     </div>
                   </div>
                   <div className={index % 2 === 1 ? 'lg:order-1' : ''}>

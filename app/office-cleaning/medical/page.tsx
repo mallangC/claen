@@ -7,10 +7,10 @@ const subNavItems = [
 ]
 
 const areas = [
-  { name: '대기실·원무', img: '[ 대기실·원무 청소 이미지 ]', items: ['의자·소파 소독', '접수대 청소', '잡지·비품 정리', '바닥 소독 청소', '공기청정기 필터 청소'] },
-  { name: '진료실', img: '[ 진료실 청소 이미지 ]', items: ['진료대 소독', '의료기기 외부 닦기', '바닥 소독', '창문·블라인드 청소', '세면대 청소'] },
-  { name: '화장실', img: '[ 화장실 청소 이미지 ]', items: ['의료용 소독제 사용', '변기 세척 소독', '바닥 소독 청소', '배수구 청소', '비품 정리'] },
-  { name: '복도·계단', img: '[ 복도·계단 청소 이미지 ]', items: ['복도 바닥 소독', '난간 소독 청소', '조명 청소', '환기구 청소', '출입문 소독'] },
+  { name: '대기실·원무', img: '/office-cleaning/medical-waiting.jpg', items: ['의자·소파 소독', '접수대 청소', '잡지·비품 정리', '바닥 소독 청소', '공기청정기 필터 청소'] },
+  { name: '진료실', img: '/office-cleaning/medical-clinic.jpg', items: ['진료대 소독', '의료기기 외부 닦기', '바닥 소독', '창문·블라인드 청소', '세면대 청소'] },
+  { name: '화장실', img: '/office-cleaning/medical-restroom.jpg', items: ['의료용 소독제 사용', '변기 세척 소독', '바닥 소독 청소', '배수구 청소', '비품 정리'] },
+  { name: '복도·계단', img: '/office-cleaning/medical-corridor.jpg', items: ['복도 바닥 소독', '난간 소독 청소', '조명 청소', '환기구 청소', '출입문 소독'] },
 ]
 
 const features = [

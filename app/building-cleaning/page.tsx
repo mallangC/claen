@@ -2,11 +2,13 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const services = [
   {
     id: 'completion',
     href: '/building-cleaning/completion',
+    img: '/building-cleaning/completion.jpg',
     title: '준공청소',
     subtitle: '건물 완공 후 입주 준비 청소',
     desc: '건물 신축·증축·리모델링 완료 후 입주를 위한 준공청소를 전문적으로 진행합니다. 건설 과정에서 발생한 분진, 페인트 자국, 시멘트 잔여물 등을 완벽하게 제거합니다.',
@@ -24,6 +26,7 @@ const services = [
   {
     id: 'government',
     href: '/building-cleaning/government',
+    img: '/building-cleaning/government.jpg',
     title: '관공서청소',
     subtitle: '공공기관을 위한 전문 청소',
     desc: '관공서, 학교, 도서관 등 공공시설의 청소를 전문적으로 진행합니다. 공공 공간의 특성에 맞는 위생 기준을 준수하며 쾌적한 환경을 만들어 드립니다.',
@@ -72,10 +75,8 @@ export default function BuildingCleaningPage() {
               {services.map((service, index) => (
                 <div key={service.id} className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
                   <div className={`pt-10 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                    <div className="h-72 bg-gradient-to-br from-gray-800 to-slate-900 rounded-2xl flex items-center justify-center">
-                      <div className="text-center text-white p-6">
-                        <p className="text-xl font-bold">{service.title}</p>
-                      </div>
+                    <div className="relative h-72 rounded-2xl overflow-hidden">
+                      <Image src={service.img} alt={service.title} fill className="object-cover" />
                     </div>
                   </div>
                   <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
