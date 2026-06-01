@@ -84,7 +84,7 @@ export default function HomeCarePage() {
                   className={`grid grid-cols-1 lg:grid-cols-2 gap-10 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
                 >
                   <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                    <div className="relative h-72 rounded-2xl overflow-hiddenㄷ">
+                    <div className="relative h-96 rounded-3xl overflow-hidden">
                       <Image src={service.img} alt={service.title} fill className="object-cover" />
                     </div>
                   </div>
