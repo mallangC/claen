@@ -261,7 +261,7 @@ export default function QuoteForm() {
           <DatePicker
             locale="ko"
             selected={form.desiredDate}
-            onChange={(date) => setForm((prev) => ({ ...prev, desiredDate: date }))}
+            onChange={(date: Date | null) => setForm((prev) => ({ ...prev, desiredDate: date }))}
             dateFormat="yyyy년 MM월 dd일"
             minDate={new Date()}
             placeholderText="날짜를 선택해 주세요"
