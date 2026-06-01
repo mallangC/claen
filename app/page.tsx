@@ -1,7 +1,7 @@
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import FloatingButtons from '@/components/FloatingButtons'
-import HeroSlider from '@/components/HeroSlider'
+import HeroVideo from '@/components/HeroVideo'
 import BeforeAfterSection from '@/components/BeforeAfterSection'
 import TestimonialSlider from '@/components/TestimonialSlider'
 import Link from 'next/link'
@@ -57,7 +57,7 @@ export default function HomePage() {
       <Header />
       <main>
         {/* 히어로 슬라이더 */}
-        <HeroSlider />
+        <HeroVideo />
 
         {/* 고객 공감 + 신뢰 섹션 */}
         <section className="py-20 md:py-28 bg-white">

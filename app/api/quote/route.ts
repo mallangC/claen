@@ -4,7 +4,7 @@ import { createAdminClient } from '@/lib/supabase'
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { name, phone, email, serviceType, address, area, desiredDate, message } = body
+    const { name, phone, serviceType, address, area, desiredDate, additionalServices, message } = body
 
     if (!name || !phone || !serviceType) {
       return NextResponse.json({ error: '필수 항목이 누락되었습니다.' }, { status: 400 })
@@ -16,11 +16,11 @@ export async function POST(request: NextRequest) {
       {
         name,
         phone,
-        email: email || null,
         service_type: serviceType,
         address: address || null,
         area: area || null,
         desired_date: desiredDate || null,
+        additional_services: additionalServices?.length ? additionalServices.join(', ') : null,
         message: message || null,
         status: 'pending',
       },
@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
     }
 
     // 솔라피 카카오 알림톡 발송
-    await sendSolapiNotification({ name, phone, serviceType, address, area, desiredDate, message })
+    await sendSolapiNotification({ name, phone, serviceType, address, area, desiredDate, additionalServices, message })
 
     return NextResponse.json({ success: true })
   } catch (err) {
@@ -48,6 +48,7 @@ async function sendSolapiNotification(data: {
   address?: string
   area?: string
   desiredDate?: string
+  additionalServices?: string[]
   message?: string
 }) {
   const apiKey = process.env.SOLAPI_API_KEY
@@ -71,7 +72,8 @@ async function sendSolapiNotification(data: {
     .update(date + salt)
     .digest('hex')
 
-  const text = `[더퍼스트클린] 새 견적 문의\n이름: ${data.name}\n연락처: ${data.phone}\n서비스: ${data.serviceType}\n주소: ${data.address || '-'}\n면적: ${data.area || '-'}\n희망일: ${data.desiredDate || '-'}\n문의: ${data.message || '-'}`
+  const additionalText = data.additionalServices?.length ? data.additionalServices.join(', ') : '-'
+  const text = `[더퍼스트클린] 새 견적 문의\n이름: ${data.name}\n연락처: ${data.phone}\n서비스: ${data.serviceType}\n추가견적: ${additionalText}\n주소: ${data.address || '-'}\n면적: ${data.area || '-'}\n희망일: ${data.desiredDate || '-'}\n문의: ${data.message || '-'}`
 
   try {
     await fetch('https://api.solapi.com/messages/v4/send', {

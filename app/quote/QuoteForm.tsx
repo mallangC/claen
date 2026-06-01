@@ -1,6 +1,11 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import DatePicker, { registerLocale } from 'react-datepicker'
+import { ko } from 'date-fns/locale'
+import 'react-datepicker/dist/react-datepicker.css'
+
+registerLocale('ko', ko)
 
 declare global {
   interface Window {
@@ -15,7 +20,6 @@ declare global {
 const serviceTypes = [
   '입주청소',
   '이사청소',
-  '거주청소 (정기)',
   '사무실청소',
   '상가청소',
   '병·의원 청소',
@@ -24,15 +28,22 @@ const serviceTypes = [
   '기타',
 ]
 
+const additionalServiceOptions = [
+  '줄눈시공',
+  '탄성코트',
+  '에어컨분해 청소',
+  '새집증후군 시공',
+]
+
 interface FormData {
   name: string
   phone: string
-  email: string
   serviceType: string
   address: string
   detailAddress: string
   area: string
-  desiredDate: string
+  desiredDate: Date | null
+  additionalServices: string[]
   message: string
 }
 
@@ -40,12 +51,12 @@ export default function QuoteForm() {
   const [form, setForm] = useState<FormData>({
     name: '',
     phone: '',
-    email: '',
     serviceType: '',
     address: '',
     detailAddress: '',
     area: '',
-    desiredDate: '',
+    desiredDate: null,
+    additionalServices: [],
     message: '',
   })
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
@@ -71,6 +82,15 @@ export default function QuoteForm() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
+  const handleAdditionalServiceToggle = (option: string) => {
+    setForm((prev) => ({
+      ...prev,
+      additionalServices: prev.additionalServices.includes(option)
+        ? prev.additionalServices.filter((s) => s !== option)
+        : [...prev.additionalServices, option],
+    }))
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!form.name || !form.phone || !form.serviceType) {
@@ -84,6 +104,8 @@ export default function QuoteForm() {
       const payload = {
         ...form,
         address: form.address + (form.detailAddress ? ` ${form.detailAddress}` : ''),
+        desiredDate: form.desiredDate ? form.desiredDate.toISOString().split('T')[0] : '',
+        additionalServices: form.additionalServices,
       }
       const res = await fetch('/api/quote', {
         method: 'POST',
@@ -92,7 +114,7 @@ export default function QuoteForm() {
       })
       if (!res.ok) throw new Error('서버 오류')
       setStatus('success')
-      setForm({ name: '', phone: '', email: '', serviceType: '', address: '', detailAddress: '', area: '', desiredDate: '', message: '' })
+      setForm({ name: '', phone: '', serviceType: '', address: '', detailAddress: '', area: '', desiredDate: null, additionalServices: [], message: '' })
     } catch {
       setStatus('error')
       setErrorMsg('문의 전송에 실패했습니다. 다시 시도하거나 전화로 문의해 주세요.')
@@ -156,22 +178,6 @@ export default function QuoteForm() {
           />
         </div>
 
-        {/* 이메일 */}
-        <div>
-          <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-            이메일
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={form.email}
-            onChange={handleChange}
-            placeholder="example@email.com"
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0a3d7a] focus:border-transparent text-gray-900 text-base"
-          />
-        </div>
-
         {/* 서비스 종류 */}
         <div>
           <label htmlFor="serviceType" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -192,37 +198,6 @@ export default function QuoteForm() {
           </select>
         </div>
 
-        {/* 주소 */}
-        <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">청소 주소</label>
-          <div className="flex gap-2 mb-2">
-            <input
-              type="text"
-              readOnly
-              value={form.address}
-              placeholder="주소찾기 버튼을 눌러주세요"
-              className="flex-1 px-4 py-3 border border-gray-300 rounded-xl bg-gray-50 text-gray-900 text-base cursor-not-allowed"
-            />
-            <button
-              type="button"
-              onClick={handleAddressSearch}
-              className="px-5 py-3 bg-[#0a3d7a] text-white text-sm font-semibold rounded-xl hover:bg-[#083270] transition-colors whitespace-nowrap"
-            >
-              주소찾기
-            </button>
-          </div>
-          {form.address && (
-            <input
-              type="text"
-              name="detailAddress"
-              value={form.detailAddress}
-              onChange={handleChange}
-              placeholder="상세주소를 입력해 주세요 (동/호수 등)"
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0a3d7a] focus:border-transparent text-gray-900 text-base"
-            />
-          )}
-        </div>
-
         {/* 면적 */}
         <div>
           <label htmlFor="area" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -239,19 +214,95 @@ export default function QuoteForm() {
           />
         </div>
 
-        {/* 희망 일자 */}
-        <div className="sm:col-span-2">
-          <label htmlFor="desiredDate" className="block text-sm font-semibold text-gray-700 mb-2">
-            희망 청소 일자
+        {/* 청소 주소 */}
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-1">
+            청소 주소
+            <span className="ml-1 text-xs font-normal text-red-500">*(서울, 경기, 인천, 충청 지역만 가능)</span>
+          </label>
+          <div className="flex gap-2">
+            <input
+              type="text"
+              readOnly
+              value={form.address}
+              placeholder="주소찾기 버튼을 눌러주세요"
+              className="flex-1 px-4 py-3 border border-gray-300 rounded-xl bg-gray-50 text-gray-900 text-base cursor-not-allowed"
+            />
+            <button
+              type="button"
+              onClick={handleAddressSearch}
+              className="px-5 py-3 bg-[#0a3d7a] text-white text-sm font-semibold rounded-xl hover:bg-[#083270] transition-colors whitespace-nowrap"
+            >
+              주소찾기
+            </button>
+          </div>
+        </div>
+
+        {/* 상세주소 */}
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-2">
+            상세주소
           </label>
           <input
-            type="date"
-            id="desiredDate"
-            name="desiredDate"
-            value={form.desiredDate}
+            type="text"
+            name="detailAddress"
+            value={form.detailAddress}
             onChange={handleChange}
+            placeholder="상세주소를 입력해 주세요 (동/호수 등)"
             className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0a3d7a] focus:border-transparent text-gray-900 text-base"
           />
+        </div>
+
+        {/* 희망 일자 */}
+        <div className="sm:col-span-2">
+          <label className="block text-sm font-semibold text-gray-700 mb-2">
+            희망 청소 일자
+          </label>
+          <DatePicker
+            locale="ko"
+            selected={form.desiredDate}
+            onChange={(date) => setForm((prev) => ({ ...prev, desiredDate: date }))}
+            dateFormat="yyyy년 MM월 dd일"
+            minDate={new Date()}
+            placeholderText="날짜를 선택해 주세요"
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0a3d7a] focus:border-transparent text-gray-900 text-base"
+            wrapperClassName="w-full"
+            calendarClassName="shadow-xl border border-gray-200 rounded-xl"
+            showPopperArrow={false}
+          />
+        </div>
+      </div>
+
+      {/* 추가견적 요청 */}
+      <div>
+        <label className="block text-sm font-semibold text-gray-700 mb-3">
+          추가견적 요청 <span className="text-xs font-normal text-gray-500">(중복 선택 가능)</span>
+        </label>
+        <div className="grid grid-cols-2 gap-3">
+          {additionalServiceOptions.map((option) => {
+            const checked = form.additionalServices.includes(option)
+            return (
+              <button
+                key={option}
+                type="button"
+                onClick={() => handleAdditionalServiceToggle(option)}
+                className={`flex items-center gap-2 px-4 py-3 rounded-xl border text-sm font-medium transition-colors text-left ${
+                  checked
+                    ? 'border-[#0a3d7a] bg-[#0a3d7a]/10 text-[#0a3d7a]'
+                    : 'border-gray-300 bg-white text-gray-700 hover:border-[#0a3d7a]/50'
+                }`}
+              >
+                <span className={`w-4 h-4 rounded border flex items-center justify-center flex-shrink-0 ${checked ? 'bg-[#0a3d7a] border-[#0a3d7a]' : 'border-gray-400'}`}>
+                  {checked && (
+                    <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                    </svg>
+                  )}
+                </span>
+                {option}
+              </button>
+            )
+          })}
         </div>
       </div>
 
