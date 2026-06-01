@@ -21,7 +21,7 @@ export default function FloatingButtons() {
             />
           </svg>
         </div>
-        <span className="text-xs font-semibold text-gray-600 drop-shadow-sm">전화상담</span>
+        <span className="text-xs font-semibold text-white drop-shadow-[0_1px_3px_rgba(0,0,0,1)]">전화상담</span>
       </a>
 
       {/* 간편견적 */}
@@ -37,7 +37,7 @@ export default function FloatingButtons() {
             />
           </svg>
         </div>
-        <span className="text-xs font-semibold text-gray-600 drop-shadow-sm">간편견적</span>
+        <span className="text-xs font-semibold text-white drop-shadow-[0_1px_3px_rgba(0,0,0,1)]">간편견적</span>
       </Link>
 
       {/* 카톡상담 */}
@@ -53,7 +53,7 @@ export default function FloatingButtons() {
             <path d="M12 3C6.477 3 2 6.477 2 10.5c0 2.39 1.344 4.533 3.432 5.925L4.5 20l4.5-2.5c.984.195 2.003.3 3 .3 5.523 0 10-3.477 10-7.5S17.523 3 12 3z"/>
           </svg>
         </div>
-        <span className="text-xs font-semibold text-gray-600 drop-shadow-sm">카톡상담</span>
+        <span className="text-xs font-semibold text-white drop-shadow-[0_1px_3px_rgba(0,0,0,1)]">카톡상담</span>
       </a>
     </div>
   )
