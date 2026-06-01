@@ -1,17 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { createClient } from '@supabase/supabase-js'
 
 export async function POST(request: NextRequest) {
   try {
     const { email, password } = await request.json()
 
-    const adminEmail = process.env.ADMIN_EMAIL
-    const adminPassword = process.env.ADMIN_PASSWORD
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    )
 
-    if (!adminEmail || !adminPassword) {
-      return NextResponse.json({ error: '관리자 설정이 올바르지 않습니다.' }, { status: 500 })
-    }
+    const { error } = await supabase.auth.signInWithPassword({ email, password })
 
-    if (email !== adminEmail || password !== adminPassword) {
+    if (error) {
       return NextResponse.json({ error: '이메일 또는 비밀번호가 올바르지 않습니다.' }, { status: 401 })
     }
 
@@ -20,7 +21,7 @@ export async function POST(request: NextRequest) {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'strict',
-      maxAge: 60 * 60 * 8, // 8시간
+      maxAge: 60 * 60 * 8,
       path: '/',
     })
 
