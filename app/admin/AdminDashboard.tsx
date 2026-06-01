@@ -237,8 +237,8 @@ export default function AdminDashboard({ quotes: initialQuotes, fetchError }: Ad
                   {[
                     { label: '이름', value: selected.name },
                     { label: '연락처', value: selected.phone },
-                    { label: '이메일', value: selected.email || '-' },
                     { label: '서비스 종류', value: selected.service_type },
+                    { label: '추가견적', value: selected.additional_services || '-' },
                     { label: '주소', value: selected.address || '-' },
                     { label: '면적', value: selected.area || '-' },
                     { label: '희망 일자', value: selected.desired_date || '-' },
@@ -251,12 +251,10 @@ export default function AdminDashboard({ quotes: initialQuotes, fetchError }: Ad
                   ))}
                 </div>
 
-                {selected.message && (
-                  <div className="bg-gray-50 rounded-xl p-4 mb-6">
-                    <p className="text-xs text-gray-500 font-medium mb-2">추가 문의사항</p>
-                    <p className="text-gray-900 leading-relaxed">{selected.message}</p>
-                  </div>
-                )}
+                <div className="bg-gray-50 rounded-xl p-4 mb-6">
+                  <p className="text-xs text-gray-500 font-medium mb-2">추가 문의사항</p>
+                  <p className="text-gray-900 leading-relaxed">{selected.message || '-'}</p>
+                </div>
 
                 <div>
                   <p className="text-sm font-semibold text-gray-700 mb-3">상태 변경</p>

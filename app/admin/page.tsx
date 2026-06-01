@@ -39,11 +39,11 @@ export interface Quote {
   id: string
   name: string
   phone: string
-  email: string | null
   service_type: string
   address: string | null
   area: string | null
   desired_date: string | null
+  additional_services: string | null
   message: string | null
   status: 'pending' | 'contacted' | 'completed' | 'cancelled'
   created_at: string
