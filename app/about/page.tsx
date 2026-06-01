@@ -117,37 +117,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* 연혁 */}
-        <section className="py-16 md:py-24 bg-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <p className="text-[#1565c0] font-semibold mb-3 tracking-wider uppercase">History</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">회사 연혁</h2>
-            </div>
-            <div className="relative">
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gray-200" />
-              {[
-                { year: '2014', event: '더퍼스트클린 설립' },
-                { year: '2016', event: '사업자 등록 및 본격 사업 확장' },
-                { year: '2018', event: '오피스·상가 청소 분야 진출' },
-                { year: '2020', event: '건물·기관 청소 서비스 시작' },
-                { year: '2022', event: '누적 시공 3,000건 달성' },
-                { year: '2024', event: '누적 시공 5,000건 달성 및 서비스 고도화' },
-              ].map((item, i) => (
-                <div key={item.year} className={`flex items-center mb-8 ${i % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
-                  <div className={`w-5/12 ${i % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
-                    <p className="text-2xl font-black text-[#0a3d7a]">{item.year}</p>
-                    <p className="text-gray-700 font-medium mt-1">{item.event}</p>
-                  </div>
-                  <div className="w-2/12 flex justify-center">
-                    <div className="w-4 h-4 rounded-full bg-[#0a3d7a] border-4 border-white shadow z-10" />
-                  </div>
-                  <div className="w-5/12" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
       </main>
       <Footer />
     </>
