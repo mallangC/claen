@@ -17,14 +17,15 @@
 	<script>
 		(function () {
 			function initDatePicker() {
-				var dateInput = document.querySelector('input[type="date"]');
-				if (!dateInput || dateInput.dataset.pickerInit) return;
-				dateInput.dataset.pickerInit = 'true';
-				dateInput.addEventListener('click', function () {
-					try { this.showPicker(); } catch (e) {}
-				});
-				dateInput.addEventListener('focus', function () {
-					try { this.showPicker(); } catch (e) {}
+				document.querySelectorAll('input[type="date"]').forEach(function (dateInput) {
+					if (dateInput.dataset.pickerInit) return;
+					dateInput.dataset.pickerInit = 'true';
+					dateInput.addEventListener('click', function () {
+						try { this.showPicker(); } catch (e) {}
+					});
+					dateInput.addEventListener('focus', function () {
+						try { this.showPicker(); } catch (e) {}
+					});
 				});
 			}
 

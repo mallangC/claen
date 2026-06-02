@@ -240,7 +240,7 @@ export default function AdminDashboard({ quotes: initialQuotes, fetchError }: Ad
                     { label: '서비스 종류', value: selected.service_type },
                     { label: '추가견적', value: selected.additional_services || '-' },
                     { label: '주소', value: selected.address || '-' },
-                    { label: '면적', value: selected.area || '-' },
+                    { label: '면적', value: selected.area ? `${selected.area}평` : '-' },
                     { label: '희망 일자', value: selected.desired_date || '-' },
                     { label: '접수 일시', value: new Date(selected.created_at).toLocaleString('ko-KR') },
                   ].map(item => (

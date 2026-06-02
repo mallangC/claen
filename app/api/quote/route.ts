@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
         phone,
         service_type: serviceType,
         address: address || null,
-        area: area || null,
+        area: area ? area.replace(/[^0-9.]/g, '') || null : null,
         desired_date: desiredDate || null,
         additional_services: additionalServices?.length ? additionalServices.join(', ') : null,
         message: message || null,
@@ -73,7 +73,7 @@ async function sendSolapiNotification(data: {
     .digest('hex')
 
   const additionalText = data.additionalServices?.length ? data.additionalServices.join(', ') : '-'
-  const text = `[더퍼스트클린] 새 견적 문의\n이름: ${data.name}\n연락처: ${data.phone}\n서비스: ${data.serviceType}\n추가견적: ${additionalText}\n주소: ${data.address || '-'}\n면적: ${data.area || '-'}\n희망일: ${data.desiredDate || '-'}\n문의: ${data.message || '-'}`
+  const text = `[더퍼스트클린] 새 견적 문의\n이름: ${data.name}\n연락처: ${data.phone}\n서비스: ${data.serviceType}\n추가견적: ${additionalText}\n주소: ${data.address || '-'}\n면적: ${data.area ? `${data.area}평` : '-'}\n희망일: ${data.desiredDate || '-'}\n문의: ${data.message || '-'}`
 
   try {
     await fetch('https://api.solapi.com/messages/v4/send', {

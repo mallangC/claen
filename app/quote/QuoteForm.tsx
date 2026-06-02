@@ -93,8 +93,8 @@ export default function QuoteForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!form.name || !form.phone || !form.serviceType) {
-      setErrorMsg('이름, 연락처, 서비스 종류는 필수 입력 항목입니다.')
+    if (!form.name || !form.phone || !form.serviceType || !form.area) {
+      setErrorMsg('이름, 연락처, 서비스 종류, 면적은 필수 입력 항목입니다.')
       return
     }
     setStatus('loading')
@@ -201,7 +201,7 @@ export default function QuoteForm() {
         {/* 면적 */}
         <div>
           <label htmlFor="area" className="block text-sm font-semibold text-gray-700 mb-2">
-            면적 (평형)
+            면적 (평형) <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
@@ -209,7 +209,8 @@ export default function QuoteForm() {
             name="area"
             value={form.area}
             onChange={handleChange}
-            placeholder="예: 32평, 100m²"
+            placeholder="예: 32"
+            required
             className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0a3d7a] focus:border-transparent text-gray-900 text-base"
           />
         </div>
