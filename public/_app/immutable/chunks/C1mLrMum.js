@@ -1,0 +1,1 @@
+var e=``+new URL(`../assets/kakao.rWkXaUUB.webp`,import.meta.url).href,t=``+new URL(`../assets/insta.DNkNCQ8I.webp`,import.meta.url).href;export{e as n,t};
