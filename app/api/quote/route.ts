@@ -1,13 +1,23 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createAdminClient } from '@/lib/supabase'
 
+const CORS_HEADERS = {
+  'Access-Control-Allow-Origin': 'https://www.thefirstclean.kr',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+}
+
+export async function OPTIONS() {
+  return new NextResponse(null, { status: 204, headers: CORS_HEADERS })
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
     const { name, phone, serviceType, address, area, desiredDate, additionalServices, message } = body
 
     if (!name || !phone || !serviceType) {
-      return NextResponse.json({ error: '필수 항목이 누락되었습니다.' }, { status: 400 })
+      return NextResponse.json({ error: '필수 항목이 누락되었습니다.' }, { status: 400, headers: CORS_HEADERS })
     }
 
     const supabase = createAdminClient()
@@ -28,16 +38,16 @@ export async function POST(request: NextRequest) {
 
     if (error) {
       console.error('Supabase insert error:', error)
-      return NextResponse.json({ error: 'DB 저장 실패' }, { status: 500 })
+      return NextResponse.json({ error: 'DB 저장 실패' }, { status: 500, headers: CORS_HEADERS })
     }
 
     // 솔라피 카카오 알림톡 발송
     await sendSolapiNotification({ name, phone, serviceType, address, area, desiredDate, additionalServices, message })
 
-    return NextResponse.json({ success: true })
+    return NextResponse.json({ success: true }, { headers: CORS_HEADERS })
   } catch (err) {
     console.error('Quote API error:', err)
-    return NextResponse.json({ error: '서버 오류' }, { status: 500 })
+    return NextResponse.json({ error: '서버 오류' }, { status: 500, headers: CORS_HEADERS })
   }
 }
 
