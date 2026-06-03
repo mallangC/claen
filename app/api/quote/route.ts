@@ -14,7 +14,8 @@ export async function OPTIONS() {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { name, phone, serviceType, address, area, desiredDate, additionalServices, message } = body
+    const { name, serviceType, address, area, desiredDate, additionalServices, message } = body
+    const phone = body.phone ? String(body.phone).replace(/[^0-9]/g, '') : ''
 
     if (!name || !phone || !serviceType) {
       return NextResponse.json({ error: '필수 항목이 누락되었습니다.' }, { status: 400, headers: CORS_HEADERS })
@@ -28,7 +29,7 @@ export async function POST(request: NextRequest) {
         phone,
         service_type: serviceType,
         address: address || null,
-        area: area ? area.replace(/[^0-9.]/g, '') || null : null,
+        area: area ? String(area).replace(/[^0-9.]/g, '') || null : null,
         desired_date: desiredDate || null,
         additional_services: additionalServices?.length ? additionalServices.join(', ') : null,
         message: message || null,
