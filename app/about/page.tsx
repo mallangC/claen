@@ -1,4 +1,11 @@
+import type { Metadata } from 'next'
 import Header from '@/components/Header'
+
+export const metadata: Metadata = {
+  title: '회사소개 | 더퍼스트클린',
+  description: '더퍼스트클린 회사 소개. 10년 이상의 청소 전문 업체. 신뢰, 전문성, 안전을 바탕으로 최고의 청소 서비스를 제공합니다.',
+  alternates: { canonical: 'https://thefirstclean.kr/about' },
+}
 import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
 import Image from 'next/image'

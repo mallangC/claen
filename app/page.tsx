@@ -1,4 +1,11 @@
+import type { Metadata } from 'next'
 import Header from '@/components/Header'
+
+export const metadata: Metadata = {
+  title: '더퍼스트클린 | 입주청소 이사청소 사무실청소 건물청소 전문',
+  description: '서울·경기·인천·충청 전문 청소 업체 더퍼스트클린. 입주청소, 이사청소, 사무실청소, 상가청소, 건물청소. 100% 직영 팀장제, 독일산 친환경 세제. 지금 무료 견적 받으세요.',
+  alternates: { canonical: 'https://thefirstclean.kr' },
+}
 import Footer from '@/components/Footer'
 import FloatingButtons from '@/components/FloatingButtons'
 import HeroVideo from '@/components/HeroVideo'

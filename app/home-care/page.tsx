@@ -1,4 +1,11 @@
+import type { Metadata } from 'next'
 import Header from '@/components/Header'
+
+export const metadata: Metadata = {
+  title: '프리미엄 홈케어 | 입주청소 이사청소 거주청소',
+  description: '더퍼스트클린 프리미엄 홈케어 서비스. 입주청소, 이사청소, 거주청소 전문. 친환경 세제와 전문 장비로 완벽한 청결을 제공합니다.',
+  alternates: { canonical: 'https://thefirstclean.kr/home-care' },
+}
 import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
 import Link from 'next/link'

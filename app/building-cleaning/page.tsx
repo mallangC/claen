@@ -1,4 +1,11 @@
+import type { Metadata } from 'next'
 import Header from '@/components/Header'
+
+export const metadata: Metadata = {
+  title: '건물·기관 청소 | 대형건물 공공기관 청소 전문',
+  description: '더퍼스트클린 건물·기관 청소 서비스. 대형건물, 공공기관, 준공청소 전문. 체계적인 청소 시스템으로 완벽한 결과를 제공합니다.',
+  alternates: { canonical: 'https://thefirstclean.kr/building-cleaning' },
+}
 import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
 import Link from 'next/link'

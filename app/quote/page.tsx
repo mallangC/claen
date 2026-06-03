@@ -1,4 +1,11 @@
+import type { Metadata } from 'next'
 import Header from '@/components/Header'
+
+export const metadata: Metadata = {
+  title: '무료 견적 문의',
+  description: '더퍼스트클린 무료 견적 문의. 입주청소, 이사청소, 사무실청소 등 원하는 서비스를 선택하고 빠른 맞춤 견적을 받아보세요.',
+  alternates: { canonical: 'https://thefirstclean.kr/quote' },
+}
 import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
 import QuoteForm from './QuoteForm'

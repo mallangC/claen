@@ -1,4 +1,11 @@
+import type { Metadata } from 'next'
 import Header from '@/components/Header'
+
+export const metadata: Metadata = {
+  title: '호피스·상가 청소 | 사무실청소 상가청소 전문',
+  description: '더퍼스트클린 사무실·상가 청소 서비스. 사무실청소, 상가청소, 병원청소 전문. 쾌적한 비즈니스 환경을 만들어드립니다.',
+  alternates: { canonical: 'https://thefirstclean.kr/office-cleaning' },
+}
 import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
 import Link from 'next/link'
