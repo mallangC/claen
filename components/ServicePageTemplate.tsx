@@ -56,6 +56,7 @@ export default function ServicePageTemplate({
           title={hero.title}
           subtitle={hero.subtitle}
           breadcrumb={hero.breadcrumb}
+          compact
         />
         <ServiceSubNav items={subNavItems} />
 

@@ -66,6 +66,7 @@ export default function BuildingCleaningPage() {
           title="건물·기관청소"
           subtitle="준공청소 · 관공서청소"
           breadcrumb={['홈', '건물·기관청소']}
+          compact
         />
 
         <section className="py-16 md:py-24 bg-white">

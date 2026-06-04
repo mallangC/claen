@@ -50,6 +50,7 @@ export default function OfficeCleaningPage() {
           title="오피스·상가청소"
           subtitle="사무실청소 · 상가청소 · 병·의원 청소"
           breadcrumb={['홈', '오피스·상가청소']}
+          compact
         />
 
         <section className="py-16 md:py-24 bg-white">

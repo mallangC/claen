@@ -2,11 +2,12 @@ interface PageHeroProps {
   title: string
   subtitle?: string
   breadcrumb: string[]
+  compact?: boolean
 }
 
-export default function PageHero({ title, subtitle, breadcrumb }: PageHeroProps) {
+export default function PageHero({ title, subtitle, breadcrumb, compact }: PageHeroProps) {
   return (
-    <section className="relative w-full h-64 md:h-80 bg-[#0a1a2e] flex items-center justify-center mt-20 md:mt-24 overflow-hidden">
+    <section className={`relative w-full ${compact ? 'h-44 md:h-56' : 'h-64 md:h-80'} bg-[#0a1a2e] flex items-center justify-center mt-20 md:mt-24 overflow-hidden`}>
       {/* 배경 그라데이션 효과 */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30" />
 

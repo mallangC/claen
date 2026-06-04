@@ -19,6 +19,7 @@ export default function QuotePage() {
           title="견적문의"
           subtitle="빠르고 정확한 맞춤 견적을 제공해 드립니다"
           breadcrumb={['홈', '견적문의']}
+          compact
         />
 
         <section className="py-16 md:py-24 bg-gray-50">

@@ -62,6 +62,7 @@ export default function AboutPage() {
           title="회사소개"
           subtitle="더퍼스트클린은 고객의 공간을 최상의 상태로 관리합니다"
           breadcrumb={['홈', '회사소개']}
+          compact
         />
 
         {/* 회사 소개 본문 */}

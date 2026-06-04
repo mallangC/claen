@@ -71,6 +71,7 @@ export default function HomeCarePage() {
           title="프리미엄 홈케어"
           subtitle="입주청소 · 이사청소 · 거주청소"
           breadcrumb={['홈', '프리미엄 홈케어']}
+          compact
         />
 
         {/* 서비스 목록 */}
