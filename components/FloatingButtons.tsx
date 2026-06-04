@@ -3,7 +3,7 @@
 import Link from 'next/link'
 
 const COMPANY_PHONE = '15881888'
-const KAKAO_URL = process.env.NEXT_PUBLIC_KAKAO_CHANNEL_URL || 'https://pf.kakao.com/_your_channel'
+const KAKAO_URL = 'http://pf.kakao.com/_xhVnxjX/chat'
 const INSTAGRAM_URL = 'https://www.instagram.com/thefirst_clean'
 
 export default function FloatingButtons() {
