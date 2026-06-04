@@ -242,7 +242,7 @@ export default function HomePage() {
               <Link href="/quote" className="px-8 py-4 bg-white text-[#0a3d7a] text-lg font-bold rounded-full hover:bg-gray-100 transition-colors shadow-lg">
                 온라인 견적 문의
               </Link>
-              <a href="tel:01012345678" className="px-8 py-4 border-2 border-white text-white text-lg font-bold rounded-full hover:bg-white/10 transition-colors">
+              <a href="tel:15881888" className="px-8 py-4 border-2 border-white text-white text-lg font-bold rounded-full hover:bg-white/10 transition-colors">
                 전화 상담하기
               </a>
             </div>

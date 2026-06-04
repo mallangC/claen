@@ -114,7 +114,7 @@ export default function ServicePageTemplate({
               <Link href="/quote" className="px-8 py-4 bg-white text-[#0a3d7a] font-bold text-lg rounded-full hover:bg-gray-100 transition-colors">
                 온라인 견적 받기
               </Link>
-              <a href="tel:01012345678" className="px-8 py-4 border-2 border-white text-white font-bold text-lg rounded-full hover:bg-white/10 transition-colors">
+              <a href="tel:15881888" className="px-8 py-4 border-2 border-white text-white font-bold text-lg rounded-full hover:bg-white/10 transition-colors">
                 전화 문의
               </a>
             </div>

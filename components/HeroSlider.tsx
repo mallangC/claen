@@ -78,7 +78,7 @@ export default function HeroSlider() {
                 무료 견적 받기
               </a>
               <a
-                href="tel:01012345678"
+                href="tel:15881888"
                 className="px-8 py-4 border-2 border-white text-white text-lg font-semibold rounded-full hover:bg-white hover:text-gray-900 transition-colors"
               >
                 전화 상담
