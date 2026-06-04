@@ -17,8 +17,8 @@ const services = [
     href: '/building-cleaning/completion',
     img: '/building-cleaning/completion.jpg',
     title: '준공청소',
-    subtitle: '건물 완공 후 입주 준비 청소',
-    desc: '건물 신축·증축·리모델링 완료 후 입주를 위한 준공청소를 전문적으로 진행합니다. 건설 과정에서 발생한 분진, 페인트 자국, 시멘트 잔여물 등을 완벽하게 제거합니다.',
+    subtitle: '건물의 완성도를 높이는 프리미엄 준공 케어',
+    desc: '신축, 증축, 리모델링 직후의 건축물은 미세한 공사 분진과 유해 물질로 가득합니다. 건설 과정에서 발생한 각종 시멘트 잔여물과 페인트 자국을 구조재 손상 없이 완벽하게 제거하여 즉시 입주 가능한 청정 상태를 만듭니다.',
     items: [
       '건설 분진 제거',
       '페인트·시멘트 잔여물 제거',
@@ -35,8 +35,8 @@ const services = [
     href: '/building-cleaning/government',
     img: '/building-cleaning/government.jpg',
     title: '관공서청소',
-    subtitle: '공공기관을 위한 전문 청소',
-    desc: '관공서, 학교, 도서관 등 공공시설의 청소를 전문적으로 진행합니다. 공공 공간의 특성에 맞는 위생 기준을 준수하며 쾌적한 환경을 만들어 드립니다.',
+    subtitle: '엄격한 위생 기준을 충족하는 공공시설 청소',
+    desc: '관공서, 학교, 도서관 등 다중이용시설은 더욱 철저한 위생 관리가 필요합니다. 공공 공간의 특성과 법적 위생 기준을 완벽히 준수하며, 시민과 임직원 모두가 안심하고 방문할 수 있는 쾌적한 환경을 유지합니다.',
     items: [
       '청사 내부 전체 청소',
       '민원실 청소',
@@ -74,7 +74,8 @@ export default function BuildingCleaningPage() {
               <p className="text-[#1565c0] font-semibold mb-3 tracking-wider uppercase">Building & Institution</p>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">건물·기관 청소 서비스</h2>
               <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                대형 건물부터 공공기관까지, 규모에 상관없이 완벽하게
+                건축물의 자산 가치를 높이고, 공공의 신뢰를 디자인합니다.<br/>
+                초대형 빌딩부터 관공서까지, 검증된 전문 장비와 고도화된 인력 운영 시스템을 통해 최적의 업무 환경과 차별화된 기업·기관 이미지를 완성합니다.
               </p>
             </div>
 

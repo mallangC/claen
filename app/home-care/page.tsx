@@ -80,7 +80,8 @@ export default function HomeCarePage() {
               <p className="text-[#1565c0] font-semibold mb-3 tracking-wider uppercase">Home Care Services</p>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">홈케어 서비스</h2>
               <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                가정의 모든 청소 필요를 전문가가 책임집니다
+                단순한 쓸고 닦는 청소를 넘어, 가족의 건강한 첫걸음을 위해 <br/>
+                보이지 않는 미세분진까지 완벽하게 제거하는 프리미엄 홈케어 서비스를 제공합니다.
               </p>
             </div>
 

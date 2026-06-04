@@ -17,8 +17,8 @@ const services = [
     href: '/office-cleaning/office',
     img: '/office-cleaning/office.jpg',
     title: '사무실청소',
-    subtitle: '쾌적한 업무 환경 조성',
-    desc: '직원들이 쾌적하게 일할 수 있는 사무 환경을 만들어 드립니다. 정기 청소부터 대청소까지 사무실 특성에 맞는 맞춤 청소 서비스를 제공합니다.',
+    subtitle: '업무 효율을 높이는 스마트 케어',
+    desc: '임직원이 오직 업무에만 집중할 수 있도록 쾌적하고 건강한 사무 환경을 구축합니다. 일상적인 정기 청소부터 눈에 보이지 않는 사각지대 대청소까지 기업 맞춤형 솔루션을 제공합니다.',
     items: ['사무용 가구 먼지 제거', '카펫 청소 및 스팀 세척', '유리 파티션 청소', '주방/탕비실 청소', '화장실 위생 관리', '바닥 왁싱 및 광택'],
   },
   {
@@ -26,8 +26,8 @@ const services = [
     href: '/office-cleaning/store',
     img: '/office-cleaning/store.jpg',
     title: '상가청소',
-    subtitle: '고객을 맞이하는 깨끗한 공간',
-    desc: '고객의 첫인상을 결정하는 상가 공간을 항상 청결하게 유지합니다. 개업 청소부터 정기 청소까지 상가 운영에 맞춘 서비스를 제공합니다.',
+    subtitle: '고객의 발길을 이끄는 첫인상, 청결의 완성',
+    desc: '매장의 청결도는 브랜드의 가치이자 매출의 시작입니다. 오픈 전 쾌적한 매장 상태를 유지하는 정기 청소부터 개업·준공 청소까지, 업종별 특성에 맞춰 방문하는 고객에게 최고의 경험을 선사합니다.',
     items: ['영업 후 청소 서비스', '쇼윈도 청소', '진열대 먼지 제거', '바닥 청소 및 광택', '간판 및 외관 청소', '냉장·냉동 장비 청소'],
   },
   {
@@ -35,8 +35,8 @@ const services = [
     href: '/office-cleaning/medical',
     img: '/office-cleaning/medical.jpg',
     title: '병·의원 청소',
-    subtitle: '위생이 최우선인 의료 공간',
-    desc: '의료 환경의 특수성을 이해하는 전문 팀이 병원 및 의원의 위생 관리를 담당합니다. 의료용 소독제를 사용한 철저한 위생 관리로 감염 예방에 앞장섭니다.',
+    subtitle: '감염 예방과 안전을 위한 메디컬 위생 솔루션',
+    desc: '대기실, 진료실, 수술실 등 구역별 오염도와 특성을 완벽히 분석하여 관리합니다. 의료 폐기물 관리부터 공조 시스템 필터 청소까지, 보이지 않는 바이러스와 세균까지 격이 다른 위생 관리를 약속드립니다.',
     items: ['의료용 소독제 사용', '대기실·진료실 청소', '수술실 준비 청소', '의료 폐기물 관리', '공조 시스템 필터 청소', '화장실 위생 관리'],
   },
 ]
@@ -58,7 +58,8 @@ export default function OfficeCleaningPage() {
               <p className="text-[#1565c0] font-semibold mb-3 tracking-wider uppercase">Office & Commercial</p>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">오피스·상가 청소 서비스</h2>
               <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                비즈니스 공간의 청결은 기업의 이미지와 직결됩니다
+                임직원의 업무 효율을 높이는 쾌적한 사무 공간부터 고객의 발길을 이끄는 청결한 매장까지, <br/>
+                비즈니스 공간의 가치를 더하는 맞춤형 정기·종합 청소 솔루션을 제공합니다.
               </p>
             </div>
 

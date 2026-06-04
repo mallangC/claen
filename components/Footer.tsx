@@ -19,11 +19,11 @@ export default function Footer() {
             <h4 className="text-base font-semibold mb-4 text-gray-200">사업자 정보</h4>
             <ul className="space-y-1.5 text-sm text-gray-400">
               <li>상호명: 더퍼스트클린</li>
-              <li>대표자: (대표자명 입력)</li>
-              <li>사업자등록번호: 000-00-00000</li>
-              <li>주소: (회사 주소 입력)</li>
-              <li>대표전화: (전화번호 입력)</li>
-              <li>이메일: (이메일 입력)</li>
+              <li>대표자: 이상천</li>
+              <li>사업자등록번호: 226-13-93402</li>
+              <li>주소: 충청남도 천안시 서북구 검은들1길 7, 701호</li>
+              <li>대표전화: 1558-1888</li>
+              <li>이메일: thefirstclean@naver.com</li>
             </ul>
           </div>
 
