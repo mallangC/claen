@@ -66,8 +66,9 @@ async function sendSolapiNotification(data: {
   const apiSecret = process.env.SOLAPI_API_SECRET
   const senderPhone = process.env.SOLAPI_SENDER_PHONE
   const receiverPhone = process.env.ADMIN_KAKAO_RECEIVER
+  const pfId = process.env.SOLAPI_PFID
 
-  if (!apiKey || !apiSecret || !senderPhone || !receiverPhone ||
+  if (!apiKey || !apiSecret || !senderPhone || !receiverPhone || !pfId ||
       apiKey === 'placeholder_solapi_api_key') {
     console.log('솔라피 설정 미완료 - 알림 발송 건너뜀')
     return
@@ -77,14 +78,12 @@ async function sendSolapiNotification(data: {
   const salt = now.getTime().toString()
   const date = now.toISOString()
 
-  // HMAC-SHA256 서명 생성
   const { createHmac } = await import('crypto')
   const signature = createHmac('sha256', apiSecret)
     .update(date + salt)
     .digest('hex')
 
   const additionalText = data.additionalServices?.length ? data.additionalServices.join(', ') : '-'
-  const text = `[더퍼스트클린] 새 견적 문의\n이름: ${data.name}\n연락처: ${data.phone}\n서비스: ${data.serviceType}\n추가견적: ${additionalText}\n주소: ${data.address || '-'}\n면적: ${data.area ? `${data.area}평` : '-'}\n희망일: ${data.desiredDate || '-'}\n문의: ${data.message || '-'}`
 
   try {
     await fetch('https://api.solapi.com/messages/v4/send', {
@@ -97,7 +96,21 @@ async function sendSolapiNotification(data: {
         message: {
           to: receiverPhone,
           from: senderPhone,
-          text,
+          type: 'ATA',
+          kakaoOptions: {
+            pfId,
+            templateId: 'KA01TP260601055330095AzRLGQAJPZr',
+            variables: {
+              '#{이름}': data.name,
+              '#{연락처}': data.phone,
+              '#{서비스종류}': data.serviceType,
+              '#{추가견적}': additionalText,
+              '#{주소}': data.address || '-',
+              '#{면적}': data.area ? `${data.area}평` : '-',
+              '#{희망일}': data.desiredDate || '-',
+              '#{문의내용}': data.message || '-',
+            },
+          },
         },
       }),
     })
