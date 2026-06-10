@@ -68,8 +68,9 @@ export default function Header() {
               src="/logo.png"
               alt="더퍼스트클린"
               width={200}
-              height={64}
-              className="h-14 md:h-16 w-auto object-contain"
+              height={200}
+              className="h-16 md:h-20 w-auto object-contain"
+              style={{ width: 'auto' }}
               priority
             />
           </Link>
@@ -85,7 +86,7 @@ export default function Header() {
               >
                 <Link
                   href={item.href}
-                  className={`px-3 lg:px-4 py-2 text-sm lg:text-base font-medium rounded-lg transition-colors duration-200 whitespace-nowrap flex items-center gap-1
+                  className={`px-3 lg:px-4 py-2 text-base lg:text-lg font-medium rounded-lg transition-colors duration-200 whitespace-nowrap flex items-center gap-1
                     ${pathname.startsWith(item.href) && item.href !== '/'
                       ? 'text-[#0a3d7a] bg-blue-50'
                       : 'text-gray-700 hover:text-[#0a3d7a] hover:bg-blue-50'
@@ -110,7 +111,7 @@ export default function Header() {
                       <Link
                         key={child.href}
                         href={child.href}
-                        className={`block px-5 py-3 text-sm font-medium whitespace-nowrap border-b border-gray-50 last:border-0 transition-colors
+                        className={`block px-5 py-3 text-base font-medium whitespace-nowrap border-b border-gray-50 last:border-0 transition-colors
                           ${pathname === child.href
                             ? 'bg-blue-50 text-[#0a3d7a]'
                             : 'text-gray-700 hover:bg-blue-50 hover:text-[#0a3d7a]'

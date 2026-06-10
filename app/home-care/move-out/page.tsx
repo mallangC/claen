@@ -44,7 +44,7 @@ export default function MoveOutPage() {
               {recommendItems.map((item) => (
                 <div key={item.title} className="bg-white rounded-2xl p-6 shadow-sm text-center">
                   <div className="relative h-72 rounded-xl mb-4 overflow-hidden">
-                    <Image src={item.img} alt={item.title} fill className="object-cover" />
+                    <Image src={item.img} alt={item.title} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
                   </div>
                   <h4 className="font-bold text-gray-900 mb-2">{item.title}</h4>
                   <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>

@@ -94,7 +94,7 @@ export default function HomeCarePage() {
                 >
                   <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
                     <div className="relative h-96 rounded-3xl overflow-hidden">
-                      <Image src={service.img} alt={service.title} fill className="object-cover" />
+                      <Image src={service.img} alt={service.title} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
                     </div>
                   </div>
                   <div className={index % 2 === 1 ? 'lg:order-1' : ''}>

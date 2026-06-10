@@ -27,7 +27,7 @@ export default function QuotePage() {
             {/* 안내 박스 */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
               {[
-                { icon: '📞', title: '전화 상담', desc: '평일 09:00 ~ 18:00' },
+                { icon: '📞', title: '전화 상담', desc: '매일 08:00 ~ 22:00' },
                 { icon: '💬', title: '카카오 상담', desc: '24시간 문의 가능' },
                 { icon: '📝', title: '온라인 견적', desc: '24시간 접수 가능' },
               ].map((item) => (

@@ -38,7 +38,7 @@ function Slider({ visible }: { visible: number }) {
             >
               {reviewImages.slice(pageIdx * visible, pageIdx * visible + visible).map((src, i) => (
                 <div key={i} className="relative aspect-[1/2] rounded-2xl overflow-hidden shadow-md">
-                  <Image src={src} alt={`고객 후기 ${pageIdx * visible + i + 1}`} fill className="object-cover" />
+                  <Image src={src} alt={`고객 후기 ${pageIdx * visible + i + 1}`} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" />
                 </div>
               ))}
             </div>

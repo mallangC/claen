@@ -41,7 +41,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className="h-full">
+    <html lang="ko" className="h-full" data-scroll-behavior="smooth">
       <head>
         <meta name="google-site-verification" content="gwx0k8y9B1YGXW7Klu0Ab2goqjhXlZhNXAOKKkTFwPo" />
         <meta name="naver-site-verification" content="95ad1f3b740a36ab8a9cb8d17c8e2d01052bff77" />

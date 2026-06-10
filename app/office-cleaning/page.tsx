@@ -69,7 +69,7 @@ export default function OfficeCleaningPage() {
                 <div key={service.id} className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
                   <div className={`pt-10 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
                     <div className="relative h-72 rounded-2xl overflow-hidden">
-                      <Image src={service.img} alt={service.title} fill className="object-cover" />
+                      <Image src={service.img} alt={service.title} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
                     </div>
                   </div>
                   <div className={index % 2 === 1 ? 'lg:order-1' : ''}>

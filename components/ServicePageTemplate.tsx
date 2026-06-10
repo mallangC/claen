@@ -78,7 +78,7 @@ export default function ServicePageTemplate({
                   <div key={area.name} className="bg-gray-50 rounded-2xl overflow-hidden">
                     <div className="relative h-[500px] bg-gradient-to-br from-gray-800 to-[#0a3d7a]">
                       {area.img.startsWith('/') ? (
-                        <Image src={area.img} alt={area.name} fill className="object-cover" />
+                        <Image src={area.img} alt={area.name} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
                       ) : (
                         <div className="flex items-center justify-center h-full">
                           <p className="text-gray-400 text-xs text-center px-3">{area.img}</p>
