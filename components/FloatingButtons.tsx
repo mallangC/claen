@@ -5,6 +5,7 @@ import Link from 'next/link'
 const COMPANY_PHONE = '15881888'
 const KAKAO_URL = 'http://pf.kakao.com/_xhVnxjX/chat'
 const INSTAGRAM_URL = 'https://www.instagram.com/thefirst_clean'
+const BLOG_URL = 'https://blog.naver.com/thefirstclean'
 
 export default function FloatingButtons() {
   return (
@@ -71,6 +72,20 @@ export default function FloatingButtons() {
           </svg>
         </div>
         <span className="text-xs font-semibold text-white drop-shadow-[0_1px_3px_rgba(0,0,0,1)]">인스타그램</span>
+      </a>
+
+      {/* 블로그 */}
+      <a
+        href={BLOG_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group flex flex-col items-center gap-1"
+        aria-label="블로그"
+      >
+        <div className="w-14 h-14 rounded-full bg-[#03C75A] text-white flex items-center justify-center shadow-lg hover:bg-[#02b350] hover:scale-110 transition-all active:scale-95">
+          <span className="text-sm font-bold">Blog</span>
+        </div>
+        <span className="text-xs font-semibold text-white drop-shadow-[0_1px_3px_rgba(0,0,0,1)]">블로그</span>
       </a>
     </div>
   )
